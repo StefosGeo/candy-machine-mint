@@ -19,6 +19,7 @@ import {
   shortenAddress,
 } from "./candy-machine";
 import { pink } from "@material-ui/core/colors";
+import zombie from "./zombie.png";
 
 const ConnectButton = styled(WalletDialogButton)``;
 
@@ -169,7 +170,7 @@ const Home = (props: HomeProps) => {
   return (
     <main
       style={{
-        // backgroundColor: "pink", 
+        // backgroundColor: "pink",
         display: "flex",
         height: "100vh"
       }}
@@ -179,7 +180,8 @@ const Home = (props: HomeProps) => {
           padding: 30,
           display: "flex",
           flex: 1,
-          flexDirection: "column"
+          flexDirection: "column",
+          // backgroundColor: "orange",
         }}>
         <div
           style={{
@@ -196,6 +198,22 @@ const Home = (props: HomeProps) => {
         </div>
         <div
           style={{
+            // backgroundColor: "red",
+            alignItems: "center",
+            display: "flex",
+            justifyContent: "center"
+          }}>
+          <h2>Mutant Zombies</h2>
+        </div>
+        <div style={{
+          display: "flex",
+          justifyContent: "center"
+        }}>
+
+          <img src={zombie} style={{ width: 300 }} />
+        </div>
+        <div
+          style={{
             // backgroundColor: "blue",
             flex: 1,
             display: "flex",
@@ -204,37 +222,145 @@ const Home = (props: HomeProps) => {
             flexDirection: "column"
           }}
         >
-          <MintContainer>
+          <div>
+            <MintContainer>
 
-            <MintButton
-              disabled={isSoldOut || isMinting || !isActive}
-              onClick={onMint}
-              variant="contained"
-            >
-              {isSoldOut ? (
-                "SOLD OUT"
-              ) : isActive ? (
-                isMinting ? (
-                  <CircularProgress />
+              <MintButton
+                disabled={isSoldOut || isMinting || !isActive}
+                onClick={onMint}
+                variant="contained"
+              >
+                {isSoldOut ? (
+                  "SOLD OUT"
+                ) : isActive ? (
+                  isMinting ? (
+                    <CircularProgress />
+                  ) : (
+                    "MINT"
+                  )
                 ) : (
-                  "MINT"
-                )
-              ) : (
-                <Countdown
-                  date={startDate}
-                  onMount={({ completed }) => completed && setIsActive(true)}
-                  onComplete={() => setIsActive(true)}
-                  renderer={renderCounter}
-                />
-              )}
-            </MintButton>
-
-          </MintContainer>
+                  <Countdown
+                    date={startDate}
+                    onMount={({ completed }) => completed && setIsActive(true)}
+                    onComplete={() => setIsActive(true)}
+                    renderer={renderCounter}
+                  />
+                )}
+              </MintButton>
+            </MintContainer>
+          </div>
           <div>
             {wallet && <p>Supply: {itemsRedeemed}/{itemsAvailable}</p>}
           </div>
         </div>
+        <div style={{
+          // backgroundColor: "grey",
+          justifyContent: "center",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column"
+        }}>
+          <h3>Roadmap</h3>
+          <div className="timeline">
+            <div className="timeline__component">
+              <div className="timeline__date timeline__date--right">December 20 2021 12:0:0 EST</div>
+            </div>
+            <div className="timeline__middle">
+              <div className="timeline__point"></div>
+            </div>
+            <div className="timeline__component timeline__component--bg">
+              <h2 className="timeline__title"> Private Pre-Sale</h2>
+              <p className="timeline__paragraph">
+                Private pre-sale. Minting will be availabe through a private link at the price of 0.15 SOL and only 3 NFTs per wallet
+              </p>
+            </div>
+            <div className="timeline__component timeline__component--bg">
+              <h2 className="timeline__title">Public Sale</h2>
+              <p className="timeline__paragraph">
 
+              </p>
+              <p className="timeline__paragraph">
+                Public sale will take place in this site. Price 0.3 SOL per NFT, supply 3 Zombies per wallet.
+              </p>
+            </div>
+            <div className="timeline__middle">
+              <div className="timeline__point"></div>
+            </div>
+            <div className="timeline__component">
+              <div className="timeline__date">December 22 2021 12:0:0 EST</div>
+            </div>
+            <div className="timeline__component">
+              <div className="timeline__date timeline__date--right"></div>
+            </div>
+            <div className="timeline__middle">
+              <div className="timeline__point"></div>
+            </div>
+            <div className="timeline__component timeline__component--bg">
+              <h2 className="timeline__title">Marketplace listing</h2>
+              <p className="timeline__paragraph">
+                Few days afte public sale takes place, the collection will be listed on a NFT Marketplace
+              </p>
+            </div>
+            <div className="timeline__component timeline__component--bottom timeline__component--bg">
+              <h2 className="timeline__title">Token creation</h2>
+              <p className="timeline__paragraph">
+              </p>
+              <p className="timeline__paragraph">
+                A token will be created and Mutant Zombie hodlers will be  awarded.
+              </p>
+            </div>
+            <div className="timeline__middle">
+              <div className="timeline__point"></div>
+              <div className="timeline__point timeline__point--bottom"></div>
+            </div>
+            <div className="timeline__component timeline__component--bottom">
+              <div className="timeline__date"></div>
+            </div>
+          </div>
+        </div>
+        <div style={{
+          // backgroundColor: "purple",
+          justifyContent: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
+
+        }}>
+          <h3>Team</h3>
+          <div style={{ justifyContent: "center", display: "flex", flexDirection: "row", alignItems: "center"}}>
+            <div style={{
+              // backgroundColor: "purple",
+              justifyContent: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding:10
+              
+            }}>
+              <img src={zombie} style={{ width: 200 }} />
+              <h4>Zpmbie Master </h4>
+            </div>
+            <div style={{
+              // backgroundColor: "purple",
+              justifyContent: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding:10
+
+            }}>
+              <img src={zombie} style={{ width: 200 }} />
+              <h4>Zpmbie Creator (Artist)</h4>
+            </div>
+          </div>
+        </div>
+        <div style={{
+          // backgroundColor: "grey",
+          justifyContent: "center",
+          display: "flex",
+        }}>
+          <h3>FAQ</h3>
+        </div>
         <Snackbar
           open={alertState.open}
           autoHideDuration={6000}
