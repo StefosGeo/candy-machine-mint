@@ -20,6 +20,10 @@ import {
 } from "./candy-machine";
 import { pink } from "@material-ui/core/colors";
 import zombie from "./zombie.png";
+import im18 from "./assets/18.png";
+import im28 from "./assets/28.png";
+import im40 from "./assets/40.png";
+import im57 from "./assets/57.png";
 
 const ConnectButton = styled(WalletDialogButton)``;
 
@@ -201,17 +205,12 @@ const Home = (props: HomeProps) => {
             // backgroundColor: "red",
             alignItems: "center",
             display: "flex",
-            justifyContent: "center"
+            justifyContent: "center",
+            paddingBottom:30,
           }}>
           <h2>Mutant Zombies</h2>
         </div>
-        <div style={{
-          display: "flex",
-          justifyContent: "center"
-        }}>
 
-          <img src={zombie} style={{ width: 300 }} />
-        </div>
         <div
           style={{
             // backgroundColor: "blue",
@@ -219,9 +218,17 @@ const Home = (props: HomeProps) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            flexDirection: "column"
+            flexDirection: "row",
+            paddingBottom: 30,
           }}
         >
+          <div style={{
+            display: "flex",
+            justifyContent: "center"
+          }}>
+
+            <img src={zombie} style={{ width: 300 }} />
+          </div>
           <div>
             <MintContainer>
 
@@ -249,7 +256,7 @@ const Home = (props: HomeProps) => {
               </MintButton>
             </MintContainer>
           </div>
-          <div>
+          <div style={{padding:20}}>
             {wallet && <p>Supply: {itemsRedeemed}/{itemsAvailable}</p>}
           </div>
         </div>
@@ -258,7 +265,9 @@ const Home = (props: HomeProps) => {
           justifyContent: "center",
           display: "flex",
           alignItems: "center",
-          flexDirection: "column"
+          flexDirection: "column",
+          paddingBottom: 30
+          
         }}>
           <h3>Roadmap</h3>
           <div className="timeline">
@@ -323,22 +332,23 @@ const Home = (props: HomeProps) => {
           justifyContent: "center",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center"
+          alignItems: "center",
+          paddingBottom:30,
 
         }}>
           <h3>Team</h3>
-          <div style={{ justifyContent: "center", display: "flex", flexDirection: "row", alignItems: "center"}}>
+          <div style={{ justifyContent: "center", display: "flex", flexDirection: "row", alignItems: "center" }}>
             <div style={{
               // backgroundColor: "purple",
               justifyContent: "center",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              padding:10
-              
+              padding: 10
             }}>
               <img src={zombie} style={{ width: 200 }} />
-              <h4>Zpmbie Master </h4>
+              <br/>
+              <h4>Zombie Master </h4>
             </div>
             <div style={{
               // backgroundColor: "purple",
@@ -346,11 +356,12 @@ const Home = (props: HomeProps) => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              padding:10
+              padding: 10
 
             }}>
               <img src={zombie} style={{ width: 200 }} />
-              <h4>Zpmbie Creator (Artist)</h4>
+              <br/>
+              <h4>Zombie Creator (Artist)</h4>
             </div>
           </div>
         </div>
@@ -358,6 +369,7 @@ const Home = (props: HomeProps) => {
           // backgroundColor: "grey",
           justifyContent: "center",
           display: "flex",
+          paddingBottom: 30
         }}>
           <h3>FAQ</h3>
         </div>
